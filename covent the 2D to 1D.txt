@@ -1,0 +1,44 @@
+import numpy as np
+from sklearn.decomposition import PCA
+import matplotlib.pyplot as plt
+data = np.array([
+    [1, 2],
+    [2, 3],
+    [3, 4],
+    [4, 5],
+    [5, 6],
+    [6, 7],
+    [7, 8],
+    [8, 9]
+])
+pca = PCA(n_components=1)
+transformed_data = pca.fit_transform(data)
+plt.figure(figsize=(8, 4))
+<Figure size 576x288 with 0 Axes>
+<Figure size 576x288 with 0 Axes
+plt.subplot(1, 2, 1)
+plt.scatter(data[:, 0], data[:, 1])  # values from feature A and feature B
+plt.title('Original Data (2 Features)')
+plt.xlabel('Feature A')
+plt.ylabel('Feature B')
+plt.grid(True)
+plt.subplot(1, 2, 2)
+plt.scatter(transformed_data, np.zeros_like(transformed_data))  
+plt.title('Transformed Data (1 Principal Component)')
+plt.xlabel('Principal Component 1')
+plt.yticks([])  
+plt.grid(True)
+plt.tight_layout() 
+plt.show()
+<Figure size 432x288 with 0 Axes>
+print("Original Data Shape:", data.shape)
+print("Transformed Data Shape:", transformed_data.shape)
+print("Transformed Data (First 5 rows):\n", transformed_data[:5])
+output:Original Data Shape: (8, 2)
+Transformed Data Shape: (8, 1)
+Transformed Data (First 5 rows):
+ [[ 4.94974747]
+ [ 3.53553391]
+ [ 2.12132034]
+ [ 0.70710678]
+ [-0.70710678]]

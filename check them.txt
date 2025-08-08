@@ -1,0 +1,61 @@
+import pandas as pd
+import numpy as np
+df = pd.DataFrame(np.random.random((5, 3)), 
+                  index=['a', 'b', 'c', 'd', 'e']
+                  columns=['one', 'two', 'three'])
+df = df.reindex(['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h'])
+print(df)
+output:
+        one       two     three
+a  0.272891  0.750768  0.687539
+b  0.264453  0.979415  0.239227
+c  0.593870  0.756159  0.789655
+d  0.970260  0.751677  0.888904
+e  0.908219  0.324764  0.730689
+f       NaN       NaN       NaN
+g       NaN       NaN       NaN
+h       NaN       NaN       NaN
+print(df['one'].isnull())
+output:
+a    False
+b    False
+c    False
+d    False
+e    False
+f     True
+g     True
+h     True
+Name: one, dtype: bool
+print(df['one'].notnull())
+output:
+a     True
+b     True
+c     True
+d     True
+e     True
+f    False
+g    False
+h    False
+Name: one, dtype: bool
+print(df.isnull())
+output:
+     one    two  three
+a  False  False  False
+b  False  False  False
+c  False  False  False
+d  False  False  False
+e  False  False  False
+f   True   True   True
+g   True   True   True
+h   True   True   True
+print(df.notnull())
+output:
+     one    two  three
+a   True   True   True
+b   True   True   True
+c   True   True   True
+d   True   True   True
+e   True   True   True
+f  False  False  False
+g  False  False  False
+h  False  False  False

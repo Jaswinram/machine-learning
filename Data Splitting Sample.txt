@@ -1,0 +1,16 @@
+from sklearn.model_selection import train_test_split
+
+X = [[1], [2], [3], [4], [5]]
+y = [10, 20, 30, 40, 50]
+
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.4)
+
+print("X_train:", X_train)
+print("X_test:", X_test)
+print("y_train:", y_train)
+print("y_test:", y_test)
+output:
+X_train: [[5], [4], [2]]
+X_test: [[3], [1]]
+y_train: [50, 40, 20]
+y_test: [30, 10]
